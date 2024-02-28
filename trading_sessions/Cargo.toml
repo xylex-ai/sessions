@@ -1,6 +1,7 @@
 [package]
 name = "trading_sessions"
-version = "0.1.0"
+version = "0.1.1"
+repository = "https://github.com/xylex-ai/trading_sessions"
 edition = "2021"
 authors = ["Floris floris@xylex.ai & Hadi hadi@xylex.ai"]
 description = "A lightweight library in Rust for identifying and verifying trading sessions"
