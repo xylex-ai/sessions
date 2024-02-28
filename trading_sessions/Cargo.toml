@@ -3,7 +3,7 @@ name = "trading_sessions"
 version = "0.1.0"
 edition = "2021"
 authors = ["Floris floris@xylex.ai & Hadi hadi@xylex.ai"]
-description = "A lightweight Sessions library in Rust"
+description = "A lightweight library in Rust for identifying and verifying trading sessions"
 license = "MIT"
 readme = "README.md"
 

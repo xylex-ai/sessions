@@ -18,7 +18,7 @@ const SECONDS_PER_HOUR: u32 = 3_600;
 /// # Examples
 ///
 /// ```
-/// use sessions::IdentifyTradingSession;
+/// use trading_sessions::IdentifyTradingSession;
 ///
 /// let session_identifier = IdentifyTradingSession::new(1708574400); // This timestamp corresponds to a time within the Tokyo session
 /// assert_eq!(session_identifier.identify_trading_session(), "Tokyo");
@@ -61,7 +61,7 @@ impl IdentifyTradingSession {
 /// # Examples
 ///
 /// ```
-/// use sessions::SessionVerification;
+/// use trading_sessions::SessionVerification;
 ///
 /// // Assuming the timestamp corresponds to a time within the Tokyo session
 /// let verifier = SessionVerification::new(1708574400, "Tokyo".to_string());
@@ -108,11 +108,11 @@ impl SessionVerification {
 ///
 /// ```
 /// use polars::prelude::*;
-/// use sessions::SessionColumn;
+/// use trading_sessions::SessionColumn;
 ///
 /// // Create a DataFrame with 3 rows and one column named "time" containing Unix timestamps
 /// let df = df! {
-///     "time" => [1708574400, 1708596000, 1708696800] // Example Unix timestamps corresponding to "Tokyo", "London", and "London_NewYork" sessions respectively
+///     "time" => [1708574400, 1708596000, 1708696800]
 /// }.unwrap();
 ///
 /// // Convert DataFrame to LazyFrame

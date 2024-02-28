@@ -1,6 +1,6 @@
-# sessions
+# trading_sessions
 
-The Sessions library, written in Rust, provides a robust solution for marking trading sessions on columnar timeseries data, specifically tailored for technical analysis. This library is designed to identify and verify trading sessions based on Unix timestamps, catering to the needs of financial data analysts and traders.
+The trading_sessions library, written in Rust, provides a robust solution for marking trading sessions on columnar timeseries data, specifically tailored for technical analysis. This library is designed to identify and verify trading sessions based on Unix timestamps, catering to the needs of financial data analysts and traders.
 
 ## Features
 
@@ -14,7 +14,7 @@ This library is particularly useful for financial data analysis, allowing users 
 
 ## Getting Started
 
-To use the Sessions library in your project, add it as a dependency in your `Cargo.toml` file and explore the provided methods to identify and verify trading sessions in your timeseries data.
+To use the trading_sessions library in your project, add it as a dependency in your `Cargo.toml` file and explore the provided methods to identify and verify trading sessions in your timeseries data.
 
 ## License
 
