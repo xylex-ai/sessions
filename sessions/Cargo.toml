@@ -1,5 +1,5 @@
 [package]
-name = "sessions"
+name = "trading_sessions"
 version = "0.1.0"
 edition = "2021"
 authors = ["Floris floris@xylex.ai & Hadi hadi@xylex.ai"]
