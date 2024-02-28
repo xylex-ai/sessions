@@ -19,3 +19,7 @@ To use the trading_sessions library in your project, add it as a dependency in y
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+If you need any specific features added or have any requests either contact me on
+discord or open an issue on the [Repo](https://github.com/xylex-ai/trading_sessions)
