@@ -126,9 +126,9 @@ impl SessionVerification {
 /// let result_df = session_column.lazyframe.collect().unwrap();
 ///
 /// // Verify that the "Session" column exists and contains the correct session names for each timestamp
-/// assert_eq!(result_df.column("Session").unwrap().get(0).unwrap(), AnyValue::String("Tokyo"));
-/// assert_eq!(result_df.column("Session").unwrap().get(1).unwrap(), AnyValue::String("London"));
-/// assert_eq!(result_df.column("Session").unwrap().get(2).unwrap(), AnyValue::String("London_NewYork"));
+///assert_eq!(result_df.column("Session").unwrap().str_value(0).unwrap(), "Tokyo");
+///assert_eq!(result_df.column("Session").unwrap().str_value(1).unwrap(), "London");
+///assert_eq!(result_df.column("Session").unwrap().str_value(2).unwrap(), "London_NewYork");
 /// ```
 ///
 /// Note: This example assumes the existence of a `sessions` module where `SessionColumn` is defined.
