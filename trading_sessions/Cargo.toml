@@ -1,6 +1,6 @@
 [package]
 name = "trading_sessions"
-version = "0.1.1"
+version = "0.1.2"
 repository = "https://github.com/xylex-ai/trading_sessions"
 edition = "2021"
 authors = ["Floris floris@xylex.ai & Hadi hadi@xylex.ai"]
@@ -11,4 +11,4 @@ readme = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-polars = {version = "0.37", features = ["lazy"] }
+polars = {version = "0.35.0", features = ["lazy"] }
