@@ -1,25 +1,55 @@
-# trading_sessions
-
-The trading_sessions library, written in Rust, provides a robust solution for marking trading sessions on columnar timeseries data, specifically tailored for technical analysis. This library is designed to identify and verify trading sessions based on Unix timestamps, catering to the needs of financial data analysts and traders.
-
-## Features
-
-- **Identify Trading Sessions**: Determine the trading session (e.g., Tokyo, London, NewYork) based on the hour of the day in UTC, considering both UK and USA normal times.
-- **Session Verification**: Verify if a given session string matches the trading session identified by a Unix timestamp.
-- **Session Column Transformation**: Add a "Session" column to a `LazyFrame` based on Unix timestamps in a "time" column, facilitating easy integration with dataframes for further analysis.
-
-## Usage
-
-This library is particularly useful for financial data analysis, allowing users to seamlessly integrate trading session identification into their Rust-based data processing pipelines. It leverages the `polars` crate for efficient data manipulation, ensuring high performance and ease of use.
+# Trading Sessions
+> A Rust crate for identifying and verifying trading sessions based on Unix timestamps.
 
 ## Getting Started
+> Add the following to your `Cargo.toml`:
+> ```toml
+> [dependencies]
+> trading_sessions = "0.1.0"
+> ```
 
-To use the trading_sessions library in your project, add it as a dependency in your `Cargo.toml` file and explore the provided methods to identify and verify trading sessions in your timeseries data.
+## Features
+> - [`IdentifyTradingSession`](./struct.IdentifyTradingSession.html): Determine the trading session from a Unix timestamp.
+> - [`SessionVerification`](./struct.SessionVerification.html): Verify if a given session string matches the identified trading session.
+> - [`SessionColumn`](./struct.SessionColumn.html): Add a "Session" column to a `LazyFrame` based on Unix timestamps.
 
-## License
+## Examples
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+### IdentifyTradingSession
+> ```
+> use trading_sessions::IdentifyTradingSession;
+> 
+> let session_identifier = IdentifyTradingSession::new(1708574400);
+> assert_eq!(session_identifier.identify_trading_session(), "Tokyo");
+> ```
 
-## Support
-If you need any specific features added or have any requests either contact me on
-discord or open an issue on the [Repo](https://github.com/xylex-ai/trading_sessions)
+### SessionVerification
+> ```
+> use trading_sessions::SessionVerification;
+> 
+> let verifier = SessionVerification::new(1708574400, "Tokyo".to_string());
+> assert!(verifier.verify());
+> ```
+
+### SessionColumn
+> ```
+> use polars::prelude::*;
+> use trading_sessions::SessionColumn;
+> 
+> let df = df! {
+>     "time" => [1708574400, 1708596000, 1708696800]
+> }.unwrap();
+> let lazy_frame = df.lazy();
+> let mut session_column = SessionColumn::new(lazy_frame);
+> session_column.apply_session_column();
+> let result_df = session_column.lazyframe.collect().unwrap();
+> assert_eq!(result_df.column("Session").unwrap().str_value(0).unwrap(), "Tokyo");
+> ```
+
+## Return Types
+> Successful operations return a string representing the trading session or a boolean indicating the verification result.
+> Errors are typically handled by the calling code and are dependent on the context in which these functions are used.
+
+## Notes
+> - The crate assumes all timestamps are in UTC.
+> - Daylight Saving Time is not considered in the current version.
